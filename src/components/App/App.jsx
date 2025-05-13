@@ -1,4 +1,4 @@
-// src/components/App/App.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
@@ -8,6 +8,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
 import css from './App.module.css';
+import { Toaster } from 'react-hot-toast';
 
 const API_KEY = 'yTJQJLwSMMsA3aEt6_KC8exet04e6Bx6Hv-F02FCF9o';
 const API_URL = 'https://api.unsplash.com/search/photos';
@@ -61,6 +62,7 @@ export default function App() {
 
   return (
     <div className={css.container}>
+      <Toaster position="top-right" />
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
       <ImageGallery images={images} onImageClick={setSelectedImage} />
